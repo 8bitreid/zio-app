@@ -11,10 +11,7 @@ object Hello extends ZIOAppDefault {
 
   val myAppLogic =
     for {
-      _ <- putStrLn("What curve is this banana?")
-      curve <- getStrLn
-      curveDouble <- ZIO.effect(curve.toDouble)
-      banana <- ZIO.effect(s"""{"curvature":${curveDouble}}""".fromJson[Banana])
+      banana <- ZIO.attempt(s"""{"curvature":3.0}""".fromJson[Banana])
       _ <- putStrLn(banana)
     } yield ()
 }
