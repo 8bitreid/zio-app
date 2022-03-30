@@ -12,6 +12,6 @@ object Hello extends ZIOAppDefault {
   val myAppLogic =
     for {
       banana <- ZIO.attempt(s"""{"curvature":3.0}""".fromJson[Banana])
-      _ <- printLine(banana)
+      _      <- printLine(banana)
     } yield ()
 }
