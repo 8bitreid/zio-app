@@ -1,0 +1,18 @@
+name: Build
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  compile_code:
+    name: Compile Code
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '17' # See 'Supported Java versions' for available options
+    - run: |
+        curl -Ls https://git.io/sbt > sbtx && chmod 0755 sbtx
+        ./sbtx compile
