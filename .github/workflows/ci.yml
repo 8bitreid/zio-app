@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   compile_code:
-    name: Compile Code
+    name: Compile and Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
