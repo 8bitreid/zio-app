@@ -13,6 +13,7 @@ lazy val root = (project in file("."))
       zioStreams,
       zhttp,
       zioJson,
+      zhttpTest % Test,
       zioTest   % Test,
       scalaTest % Test
     ),
