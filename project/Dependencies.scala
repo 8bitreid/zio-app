@@ -2,7 +2,7 @@ import sbt._
 
 object Dependencies {
   val zioVersion = "2.0.0-RC3"
-  val ZHTTPVersion = "1.0.0.0-RC24"
+  val ZHTTPVersion = "2.0.0-RC5"
   lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.2.11"
   lazy val zio = "dev.zio" %% "zio" % zioVersion
   lazy val zioStreams = "dev.zio" %% "zio-streams" % zioVersion
