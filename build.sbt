@@ -13,9 +13,10 @@ lazy val root = (project in file("."))
       zioStreams,
       zhttp,
       zioJson,
-      zhttpTest % Test,
-      zioTest   % Test,
-      scalaTest % Test
+      zioTest    % Test,
+      zioTestSbt % Test,
+      zhttpTest  % Test,
+      scalaTest  % Test
     ),
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework"))
   )
