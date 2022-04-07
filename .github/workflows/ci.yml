@@ -19,6 +19,7 @@ jobs:
     - run: |
         ./sbtx test
   report_test:
+    needs: [compile_code]
     name: Publish Unit Test Results
     runs-on: ubuntu-latest
     if: always()
