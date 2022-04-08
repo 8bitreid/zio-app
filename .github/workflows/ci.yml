@@ -26,4 +26,4 @@ jobs:
     steps:
     - uses: EnricoMi/publish-unit-test-result-action@v1
       with:
-        files: "**/build/test-results/test/TEST-*.xml"
+        files: "test-results/**/*.xml"
