@@ -1,11 +1,16 @@
 name: CI
+
+env:
+  JDK_JAVA_OPTIONS: -XX:+PrintCommandLineFlags -Xmx3G # JDK_JAVA_OPTIONS is _the_ env. variable to use for modern Java
+  JVM_OPTS: -XX:+PrintCommandLineFlags -Xmx3G # for Java 8 only (sadly, it is not modern enough for JDK_JAVA_OPTIONS)
+  
 on:
   pull_request:
     branches:
       - main
 jobs:
   compile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 7
     steps:
     - name: Checkout current branch
@@ -16,7 +21,7 @@ jobs:
         distribution: temurin
         java-version: 17
         check-latest: true
-    - name: Compile scala code
+    - name: Cache scala dependencies
       uses: coursier/cache-action@v6
-    - name: Lint code
+    - name: compile code
       run: ./sbt compile
